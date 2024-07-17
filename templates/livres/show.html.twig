@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livre{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Livre</h1>
+
+        <table class="table table-bordered table-striped">
+            <tbody>
+                <tr>
+                    <th scope="row">Id</th>
+                    <td>{{ livre.id }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Titre</th>
+                    <td>{{ livre.titre }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Auteur</th>
+                    <td>{{ livre.auteur }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Date</th>
+                    <td>{{ livre.date }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Résumé</th>
+                    <td>{{ livre.resume }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="mt-4">
+            <a href="{{ path('app_livres_index') }}" class="btn btn-secondary">Back to list</a>
+            <a href="{{ path('app_livres_edit', {'id': livre.id}) }}" class="btn btn-primary">Edit</a>
+        </div>
+
+        {{ include('livres/_delete_form.html.twig') }}
+    </div>
+{% endblock %}
